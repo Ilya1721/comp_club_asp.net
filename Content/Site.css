@@ -1,0 +1,257 @@
+﻿html, body {
+    background-image: url('http://cyberzone.kiev.ua/img/back1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    font-family: 'Helvetica', 'Verdana', 'Noto-sans', 'Nunito', sans-serif;
+    font-weight: 200;
+    min-height: 100%;
+    margin: 0;
+}
+
+.main-container {
+    min-height: calc(100vh - 60px);
+}
+
+.games > .img-div > .table,
+.platforms > .img-div > .table
+{
+    background: #343a40;
+    color: #ffef0a;
+}
+
+.games > .img-div > .table td img,
+.platforms > .img-div > .table td img
+{
+    width: 200px;
+    height: 200px;
+}
+
+.games > .img-div .table td,
+.games > .img-div .table tr,
+.games > .img-div > .table th,
+.platforms > .img-div .table td,
+.platforms > .img-div .table tr,
+.platforms > .img-div > .table th
+{
+    border-color: #454d55;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.prices, .schedule, .games, .platforms {
+    display: flex;
+    justify-content: space-between;
+    width: 975px;
+    margin: auto;
+}
+
+.games, .platforms {
+    margin-bottom: 50px;
+}
+
+.games > .img-div, .platforms > .img-div {
+    margin: auto 50px;
+}
+
+.schedule > .img-div {
+    text-align: center;
+    margin-top: 25px;
+    margin-right: 100px;
+}
+
+.schedule > .img-div h3 {
+    color: #ffef0a;
+    font-size: 3em;
+    margin-top: 50px;
+}
+
+.schedule > .img-div p {
+    color: #fff;
+    font-size: 1.8em;
+}
+
+.prices > .img-div h3, .games > .img-div h3,
+.platforms > .img-div h3
+{
+    text-align: center;
+    font-size: 3em;
+    color: #ffef0a;
+    margin-top: 50px;
+}
+
+.games > .img-div > .header,
+.platforms > .img-div > .header
+{
+    color: #ffef0a;
+    font-size: 1.4em;
+}
+
+.games > .img-div, .platforms > .img-div
+{
+    width: 100%;
+}
+
+.prices > .left-menu, .schedule > .left-menu,
+.games > .left-menu, .platforms > .left-menu
+{
+    margin-top: 100px;
+}
+
+.schedule > .left-menu a, .prices > .left-menu a,
+.games > .left-menu a, .platforms > .left-menu a
+{
+    display: block;
+    font-size: 1.4em;
+}
+
+.main { 
+    display: flex;
+    justify-content: space-between;
+    width: 975px;
+    margin: 50px auto;
+}
+
+.main > .img-div {
+    text-align: center;
+}
+
+a {
+    color: #fff;
+}
+a:hover {
+    color:  #fff;
+}
+
+.last-events {
+    width: 250px;
+}
+
+.game-name {
+    color: #c30c08;
+}
+
+.last-events > a {
+    color: #fff;
+}
+
+.left-menu {
+    width: 300px;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.left-menu > .address-p {
+    color: #ffef0a;
+}
+
+.left-menu > hr {
+    border-color: #ffef0a;
+    border-style: dotted;
+}
+
+.left-menu > h3 {
+    color: #ffef0a;
+}
+
+.left-menu > .name-h3 {
+    display: inline;
+}
+
+.header-div {
+    display: flex;
+    justify-content: center;
+    width: 975px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 975px;
+    padding-top: 15px;
+}
+
+.login-div {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    font-size: 1.4em;
+    align-items: center;
+}
+
+.login-div > a {
+    color: #fff;
+}
+.login-div > a:hover {
+    color: #ffef0a;
+    text-decoration: none;
+}
+
+.nav-div {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    font-size: 1.4em;
+    align-items: center;
+}
+
+.nav-div > a {
+    color: #fff;
+}
+.nav-div > a:hover {
+    color: #ffef0a;
+    text-decoration: none;
+}
+
+.footer-div {
+    display: flex;
+    justify-content: center;
+    background: #0a0a0a;
+    width: 975px;
+    margin: auto;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright-div {
+    color: #566464;
+    font-size: 0.8em;
+    width: 30%;
+    text-align: left;
+}
+
+.site-name {
+    color: #710d0a;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 325px;
+}
+
+.footer-nav > a {
+    color: #fff;
+    font-size: 1.2em;
+}
+.footer-nav > a:hover {
+    color: #ffef0a;
+    text-decoration: none;
+}
+
+.address-div {
+    color: #ffef0a;
+    width: 30%;
+}
+
+.address-title {
+    text-decoration: underline;
+}
+

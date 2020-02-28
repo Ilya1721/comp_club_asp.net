@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CyberZone</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="header-div">
+        <header>
+            <div class="image-div">
+                <a href="/">
+                    <img src="http://cyberzone.kiev.ua/img/logo.png">
+                </a>
+            </div>
+            <div class="nav-div">
+                @Html.ActionLink("Ціни", "Prices", "Home")
+                @Html.ActionLink("Режим роботи", "Schedule", "Home")
+                <a href="#">Забронювати місце</a>
+                <a href="#">Кабінет</a>
+            </div>
+            <div class="login-div">
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+            </div>
+        </header>
+    </div>
+
+
+    <div class="main-container">
+        @RenderBody()
+    </div>
+
+
+
+    <div class="footer-div">
+        <footer>
+            <div class="copyright-div">
+                <p>
+                    Copyright © 2012-2019
+                    <span class="site-name">CyberZone</span>.
+                    All rights reserved Копіювання
+                    інформації без прямої активної
+                    гіперсилки на www.cyberzone.ua
+                    заборонено
+                </p>
+            </div>
+            <div class="footer-nav">
+                @Html.ActionLink("Ціни", "Prices", "Home")
+                @Html.ActionLink("Режим роботи", "Schedule", "Home")
+                <a href="#">Забронювати місце</a>
+            </div>
+            <div class="address-div">
+                <p>
+                    <span class="address-title">Адреса:</span>
+                    Разіна 17
+                    ТЦ Метроград, 2-й поверх
+                    <span class="address-title">телефон:</span>
+                    +380(93)247-56-47
+                    <span class="address-title">Режим роботи:</span>
+                    Кожний день. 9.00-07.00
+                </p>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
