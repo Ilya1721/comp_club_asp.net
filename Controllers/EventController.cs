@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace ComputerClub.Controllers
 {
-    public class EventController : Controller
+    public class EventController : ApplicationController
     {
-        // GET: Event
         public ActionResult Index()
         {
+            ViewData["events"] = DataContext.Events.Where(e => e.GameID != null).ToList();
+
             return View();
         }
     }

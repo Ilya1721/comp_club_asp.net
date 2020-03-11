@@ -170,8 +170,12 @@
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\Club.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventRole.cs" />
+    <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Hall.cs" />
     <Compile Include="Models\Platform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

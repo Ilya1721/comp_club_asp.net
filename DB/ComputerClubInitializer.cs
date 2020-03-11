@@ -174,7 +174,152 @@ namespace ComputerClub.DB
 
             Clubs.ForEach(g => context.Clubs.Add(g));
             context.SaveChanges();
-        }
-            
+
+            List<Hall> Halls = new List<Hall>
+            {
+                new Hall
+                {
+                    Name = "Standard"
+                },
+                new Hall
+                {
+                    Name = "Pro"
+                },
+                new Hall
+                {
+                    Name = "VIP"
+                }
+            };
+
+            Halls.ForEach(g => context.Halls.Add(g));
+            context.SaveChanges();
+
+            List<EventType> EventTypes = new List<EventType>
+            {
+                new EventType
+                {
+                    Name = "Турнір"
+                },
+                new EventType
+                {
+                    Name = "Виставка"
+                },
+                new EventType
+                {
+                    Name = "Візит"
+                }
+            };
+
+            EventTypes.ForEach(g => context.EventTypes.Add(g));
+            context.SaveChanges();
+
+            List<EventRole> EventRoles = new List<EventRole>
+            {
+                new EventRole
+                {
+                    Name = "Гравець"
+                },
+                new EventRole
+                {
+                    Name = "Глядач"
+                },
+                new EventRole
+                {
+                    Name = "Організатор"
+                }
+            };
+
+            EventRoles.ForEach(g => context.EventRoles.Add(g));
+            context.SaveChanges();
+
+            List<Event> Events = new List<Event>
+            {
+                new Event
+                {
+                    EventTypeID = 1,
+                    HallID = 1,
+                    GameID = 1,
+                    Description = "Як і завжди наш клуб продовжує підтримувати" +
+                    " кіберспорт і організовувати турніри найвищого рівня.Не пропустіть" +
+                    " найближчий турнір - відбіркові на справжню кіберолімпіаду WCG 2019." +
+                    " Відбіркові ігри на лані пройдуть в нашому клубі 27-28 грудня.",
+                    Price = 0.00,
+                    StartDate = new DateTime(2020, 3, 11, 3, 15, 0),
+                    EndDate = new DateTime(2020, 4, 11, 3, 15, 0)
+                },
+                new Event
+                {
+                    EventTypeID = 1,
+                    HallID = 1,
+                    GameID = 2,
+                    Description = "Як і завжди наш клуб продовжує підтримувати" +
+                    " кіберспорт і організовувати турніри найвищого рівня.Не пропустіть" +
+                    " найближчий турнір - відбіркові на справжню кіберолімпіаду WCG 2019." +
+                    " Відбіркові ігри на лані пройдуть в нашому клубі 27-28 грудня.",
+                    Price = 0.00,
+                    StartDate = new DateTime(2020, 12, 21, 2, 0, 0),
+                    EndDate = new DateTime(2020, 4, 11, 3, 15, 0)
+                },
+                new Event
+                {
+                    EventTypeID = 1,
+                    HallID = 1,
+                    GameID = 2,
+                    Description = "Як і завжди наш клуб продовжує підтримувати" +
+                    " кіберспорт і організовувати турніри найвищого рівня.Не пропустіть" +
+                    " найближчий турнір - відбіркові на справжню кіберолімпіаду WCG 2019." +
+                    " Відбіркові ігри на лані пройдуть в нашому клубі 27-28 грудня.",
+                    Price = 0.00,
+                    StartDate = new DateTime(2020, 01, 08, 3, 15, 0),
+                    EndDate = new DateTime(2020, 01, 10, 3, 15, 1)
+                },
+                new Event
+                {
+                    EventTypeID = 3,
+                    HallID = 1,
+                    GameID = null,
+                    Description = "Ви завжди можете прийти та пограти в нашому клубі",
+                    Price = 10.00,
+                    StartDate = null,
+                    EndDate = null,
+                },
+                new Event
+                {
+                    EventTypeID = 1,
+                    HallID = 1,
+                    GameID = 9,
+                    Description = "Як і завжди наш клуб продовжує підтримувати" +
+                    " кіберспорт і організовувати турніри найвищого рівня.Не пропустіть" +
+                    " найближчий турнір - відбіркові на справжню кіберолімпіаду WCG 2019." +
+                    " Відбіркові ігри на лані пройдуть в нашому клубі 27-28 грудня.",
+                    Price = 0.00,
+                    StartDate = new DateTime(2020, 12, 23, 3, 15, 0),
+                    EndDate = new DateTime(2020, 12, 27, 3, 15, 0)
+                },
+                new Event
+                {
+                    EventTypeID = 3,
+                    HallID = 2,
+                    GameID = null,
+                    Description = "Ви завжди можете прийти та пограти в нашому клубі",
+                    Price = 0.00,
+                    StartDate = null,
+                    EndDate = null
+                },
+                new Event
+                {
+                    EventTypeID = 3,
+                    HallID = 3,
+                    GameID = null,
+                    Description = "Ви завжди можете прийти та пограти в нашому клубі",
+                    Price = 0.00,
+                    StartDate = null,
+                    EndDate = null
+                }
+            };
+
+            Events.ForEach(g => context.Events.Add(g));
+            context.SaveChanges();
+        }      
     }
 }

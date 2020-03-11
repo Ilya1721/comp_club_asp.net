@@ -3,6 +3,10 @@
     ViewBag.Title = "Index";
 }
 
+@{
+    var events = ViewData["events"] as List<ComputerClub.Models.Event>;
+}
+
 <div class="platforms">
     @Html.Partial("_LeftMenu")
     <div class="img-div">
@@ -18,17 +22,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <a href="#">Турнір по
-                            <span class="game-name">Dota 2</span>
-                        </a>
-                    </td>
-                    <td>08.02.2020 14:00</td>
-                    <td>10.02.2020 14:00</td>
-                    <td>0 грн.</td>
-                    <td>Standart</td>
-                </tr>
+                @foreach (var item in events)
+                {
+                    <tr>
+                        <td>
+                            <a href="#">
+                                @item.EventType.Name по
+                                <span>@item.Game.Name</span>
+                            </a>
+                        </td>
+                        <td>@item.StartDate.Value.ToString("g")</td>
+                        <td>@item.EndDate.Value.ToString("g")</td>
+                        <td>@item.Price грн.</td>
+                        <td>@item.Hall.Name</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

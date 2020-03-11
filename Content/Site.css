@@ -58,7 +58,11 @@
 .schedule > .img-div {
     text-align: center;
     margin-top: 25px;
-    margin-right: 100px;
+    margin-right: 250px;
+}
+
+.prices > .img-div {
+    margin-right: 50px;
 }
 
 .schedule > .img-div h3 {

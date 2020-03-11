@@ -17,6 +17,10 @@ namespace ComputerClub.DB
         public DbSet<Platform> Platforms { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Club> Clubs { get; set; }
+        public DbSet<EventType> EventTypes { get; set; }
+        public DbSet<EventRole> EventRoles { get; set; }
+        public DbSet<Hall> Halls { get; set; }
+        public DbSet<Event> Events { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
