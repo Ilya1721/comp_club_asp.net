@@ -3,12 +3,16 @@
     ViewBag.Title = "Schedule";
 }
 
+@{
+    var clubs = ViewData["clubs"] as List<ComputerClub.Models.Club>;
+}
+
 <div class="schedule">
     @Html.Partial("_LeftMenu")
     <div class="img-div">
         <h3>Режим роботи</h3>
         <p>
-            Клуб працює Кожний день. 9.00-07.00
+            @clubs.First().Schedule
         </p>
     </div>
 </div>

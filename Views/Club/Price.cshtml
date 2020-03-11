@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Prices";
+}
+
+@{
+    var clubs = ViewData["clubs"] as List<ComputerClub.Models.Club>;
+}
+
+<div class="prices">
+    @Html.Partial("_LeftMenu")
+    <div class="img-div">
+        <h3>Ціни</h3>
+        <img src='@Url.Action("GetPriceImage", "Club", new { itemId = clubs.First().ClubID })'>
+    </div>
+</div>
+

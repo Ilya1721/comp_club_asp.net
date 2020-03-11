@@ -9,9 +9,7 @@ namespace ComputerClub.Models
 {
     public class Genre
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int GenreID { get; set; }
         public string Name { get; set; }
     }
 }

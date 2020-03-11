@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+ var clubs = ViewData["clubs"] as List<ComputerClub.Models.Club>;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - CyberZone</title>
+    <title>@ViewBag.Title - @clubs.First().Name</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,8 +21,8 @@
                 </a>
             </div>
             <div class="nav-div">
-                @Html.ActionLink("Ціни", "Prices", "Home")
-                @Html.ActionLink("Режим роботи", "Schedule", "Home")
+                @Html.ActionLink("Ціни", "Price", "Club")
+                @Html.ActionLink("Режим роботи", "Schedule", "Club")
                 <a href="#">Забронювати місце</a>
                 <a href="#">Кабінет</a>
             </div>
@@ -40,7 +45,7 @@
             <div class="copyright-div">
                 <p>
                     Copyright © 2012-2019
-                    <span class="site-name">CyberZone</span>.
+                    <span class="site-name">@clubs.First().Name</span>.
                     All rights reserved Копіювання
                     інформації без прямої активної
                     гіперсилки на www.cyberzone.ua
@@ -48,19 +53,19 @@
                 </p>
             </div>
             <div class="footer-nav">
-                @Html.ActionLink("Ціни", "Prices", "Home")
-                @Html.ActionLink("Режим роботи", "Schedule", "Home")
+                @Html.ActionLink("Ціни", "Price", "Club")
+                @Html.ActionLink("Режим роботи", "Schedule", "Club")
                 <a href="#">Забронювати місце</a>
             </div>
             <div class="address-div">
                 <p>
                     <span class="address-title">Адреса:</span>
-                    Разіна 17
-                    ТЦ Метроград, 2-й поверх
+                    @clubs.First().Street  @clubs.First().House
+                    @clubs.First().Flat
                     <span class="address-title">телефон:</span>
-                    +380(93)247-56-47
+                    @clubs.First().Phone
                     <span class="address-title">Режим роботи:</span>
-                    Кожний день. 9.00-07.00
+                    @clubs.First().Schedule
                 </p>
             </div>
         </footer>

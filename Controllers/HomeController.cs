@@ -8,38 +8,14 @@ using ComputerClub.DB;
 
 namespace ComputerClub.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ApplicationController
     {
-        private ComputerClubContext db = new ComputerClubContext();
-
         public ActionResult Index()
         {
-            return View();
-        }
+            ViewData["games"] = DataContext.Games.ToList();
+            ViewData["platforms"] = DataContext.Platforms.ToList();
 
-        public ActionResult Prices()
-        {
             return View();
-        }
-
-        public ActionResult Schedule()
-        {
-            return View();
-        }
-
-        public ActionResult Games()
-        {
-            return View();
-        }
-
-        public ActionResult Platforms()
-        {
-            return View();
-        }
-
-        public ActionResult Test()
-        {
-            return View(db.Tests.ToList());
         }
     }
 }

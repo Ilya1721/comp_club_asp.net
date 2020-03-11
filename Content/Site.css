@@ -23,8 +23,8 @@
 .games > .img-div > .table td img,
 .platforms > .img-div > .table td img
 {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
 .games > .img-div .table td,

@@ -155,22 +155,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\ClubController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlatformController.cs" />
     <Compile Include="DB\ComputerClubContext.cs" />
     <Compile Include="DB\ComputerClubInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003022102191_GenreMigration.cs" />
-    <Compile Include="Migrations\202003022102191_GenreMigration.Designer.cs">
-      <DependentUpon>202003022102191_GenreMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Infrastructure\ImageLoader.cs" />
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUser.cs" />
+    <Compile Include="Models\Club.cs" />
+    <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\Platform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +181,17 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\csgo.jfif" />
+    <Content Include="Content\img\dota2.jfif" />
+    <Content Include="Content\img\fifa18.jfif" />
+    <Content Include="Content\img\gta5.jfif" />
+    <Content Include="Content\img\lineage2.jfif" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\lol.jfif" />
+    <Content Include="Content\img\pes18.jfif" />
+    <Content Include="Content\img\price.gif" />
+    <Content Include="Content\img\red-alert3.jfif" />
+    <Content Include="Content\img\red-dead-redemption2.jfif" />
+    <Content Include="Content\img\serious-sam2.jfif" />
     <Content Include="Content\img\windows.jfif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -209,16 +222,17 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Prices.cshtml" />
-    <Content Include="Views\Home\Schedule.cshtml" />
     <Content Include="Views\Shared\_LeftMenu.cshtml" />
-    <Content Include="Views\Home\Games.cshtml" />
-    <Content Include="Views\Home\Platforms.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Platform\Index.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Club\Price.cshtml" />
+    <Content Include="Views\Club\Schedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Application\" />
+    <Folder Include="Views\App\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -232,11 +246,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003022102191_GenreMigration.resx">
-      <DependentUpon>202003022102191_GenreMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

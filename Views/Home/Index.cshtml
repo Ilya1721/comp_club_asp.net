@@ -1,23 +1,30 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Home";
 }
+
+@{
+    var clubs = ViewData["clubs"] as List<ComputerClub.Models.Club>;
+    var games = ViewData["games"] as List<ComputerClub.Models.Game>;
+    var platforms = ViewData["platforms"] as List<ComputerClub.Models.Platform>;
+ }
 
 <div class="main">
     <div class="left-menu">
         <p>
-            <h3 class="name-h3">CyberZone</h3>
+            <h3 class="name-h3">@clubs.First().Name</h3>
             - найкращий комп`ютерний клуб міста
         </p>
         <hr />
         <p>
         <p class="address-p">
             <span class="address-title">Адреса:</span>
-            Разіна 17
-            ТЦ Метроград, 2-й поверх
+            @clubs.First().Street @clubs.First().House
+            @clubs.First().Flat
             <span class="address-title">Телефон:</span>
-            +380(93)247-56-47<br />
+            @clubs.First().Phone<br />
             <span class="address-title">Режим роботи:</span>
-            Кожний день. 9.00-07.00
+            @clubs.First().Schedule
         </p>
         <h3>Анонси</h3>
         <h3>Останні події</h3>
@@ -49,23 +56,20 @@
         </p>
         <h3>Ігри</h3>
         <p class="game-list">
-            <span>CS GO</span><br />
-            <span>CS GO</span><br />
-            <span>CS GO</span><br />
-            <span>CS GO</span><br />
-            <span>CS GO</span><br />
-            <span>CS GO</span><br />
-            <span>CS GO</span><br />
-            <span>CS GO</span><br />
-            <span>CS GO</span><br />
+            @foreach (var item in games)
+            {
+                <span>@item.Name</span><br />
+            }
             <a href="#">
                 Та інші...
             </a>
         </p>
         <h3>Платформи</h3>
         <p class="game-list">
-            <span>Windows</span><br />
-            <span>PS4</span><br />
+            @foreach (var item in platforms)
+            {
+                <span>@item.Name</span><br />
+            }
             <a href="#">
                 Та інші...
             </a>

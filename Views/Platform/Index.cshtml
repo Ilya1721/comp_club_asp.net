@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Platforms";
+}
+
+@{
+    var platforms = ViewData["platforms"] as List<ComputerClub.Models.Platform>;
+}
+
+<div class="platforms">
+    @Html.Partial("_LeftMenu")
+    <div class="img-div">
+        <h3>Усі платформи</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Фото</th>
+                    <th>Назва</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in platforms)
+                {
+                    <tr>
+                        <td>@item.PlatformID</td>
+                        <td>
+                            <img src='@Url.Action("GetImage", "Platform", new { itemId = item.PlatformID })' />
+                        </td>
+                        <td><span>@item.Name</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
