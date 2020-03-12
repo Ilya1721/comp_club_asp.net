@@ -232,6 +232,7 @@
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Views\Club\Price.cshtml" />
     <Content Include="Views\Club\Schedule.cshtml" />
+    <Content Include="Views\Event\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

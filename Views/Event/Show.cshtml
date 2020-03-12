@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Event";
+}
+
+@{
+    var events = ViewData["events"] as List<ComputerClub.Models.Event>;
+    var Event = events.First();
+}
+
+<div class="prices">
+    @Html.Partial("_LeftMenu")
+    <div class="event-div">
+        <h3>@Event.EventType.Name по @Event.Game.Name</h3>
+        <p>
+            @Event.Description
+        </p>
+    </div>
+</div>
+

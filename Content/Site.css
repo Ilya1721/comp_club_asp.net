@@ -43,7 +43,7 @@
 .prices, .schedule, .games, .platforms {
     display: flex;
     justify-content: space-between;
-    width: 975px;
+    width: 1100px;
     margin: auto;
 }
 
@@ -51,7 +51,8 @@
     margin-bottom: 50px;
 }
 
-.games > .img-div, .platforms > .img-div {
+.games > .img-div, .platforms > .img-div
+{
     margin: auto 50px;
 }
 
@@ -62,10 +63,24 @@
 }
 
 .prices > .img-div {
-    margin-right: 50px;
+    margin-right: 175px;
 }
 
-.schedule > .img-div h3 {
+.prices > .event-div {
+    margin-right: 50px;
+    font-size: 1.5em;
+    width: 750px;
+}
+
+.prices > .event-div h3 {
+    color: #ffef0a;
+    font-size: 2em;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.schedule > .img-div h3
+{
     color: #ffef0a;
     font-size: 3em;
     margin-top: 50px;
@@ -113,7 +128,7 @@
 .main { 
     display: flex;
     justify-content: space-between;
-    width: 975px;
+    width: 1100px;
     margin: 50px auto;
 }
 
@@ -166,14 +181,14 @@ a:hover {
 .header-div {
     display: flex;
     justify-content: center;
-    width: 975px;
+    width: 1100px;
     margin: auto;
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    width: 975px;
+    width: 1100px;
     padding-top: 15px;
 }
 
@@ -196,7 +211,7 @@ header {
 .nav-div {
     display: flex;
     justify-content: space-between;
-    width: 450px;
+    width: 475px;
     font-size: 1.4em;
     align-items: center;
 }
@@ -213,7 +228,7 @@ header {
     display: flex;
     justify-content: center;
     background: #0a0a0a;
-    width: 975px;
+    width: 1100px;
     margin: auto;
     padding: 30px;
     margin-bottom: 30px;

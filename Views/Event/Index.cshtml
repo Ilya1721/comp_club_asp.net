@@ -26,10 +26,8 @@
                 {
                     <tr>
                         <td>
-                            <a href="#">
-                                @item.EventType.Name по
-                                <span>@item.Game.Name</span>
-                            </a>
+                            @Html.ActionLink(item.EventType.Name + " по " + item.Game.Name,
+                            "Show", "Event", new { ID = item.EventID }, null )
                         </td>
                         <td>@item.StartDate.Value.ToString("g")</td>
                         <td>@item.EndDate.Value.ToString("g")</td>

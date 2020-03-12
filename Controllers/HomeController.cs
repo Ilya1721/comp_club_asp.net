@@ -14,6 +14,10 @@ namespace ComputerClub.Controllers
         {
             ViewData["games"] = DataContext.Games.ToList();
             ViewData["platforms"] = DataContext.Platforms.ToList();
+            ViewData["new_events"] = DataContext.Events.
+                Where(g => g.GameID != null && g.EndDate > DateTime.Now).ToList();
+            ViewData["old_events"] = DataContext.Events.
+                Where(g => g.GameID != null && g.EndDate < DateTime.Now).ToList();
 
             return View();
         }

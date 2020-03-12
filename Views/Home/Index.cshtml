@@ -5,50 +5,57 @@
 
 @{
     var clubs = ViewData["clubs"] as List<ComputerClub.Models.Club>;
+    var club = clubs.First();
     var games = ViewData["games"] as List<ComputerClub.Models.Game>;
     var platforms = ViewData["platforms"] as List<ComputerClub.Models.Platform>;
+    var new_events = ViewData["new_events"] as List<ComputerClub.Models.Event>;
+    var old_events = ViewData["old_events"] as List<ComputerClub.Models.Event>;
  }
 
 <div class="main">
     <div class="left-menu">
         <p>
-            <h3 class="name-h3">@clubs.First().Name</h3>
+            <h3 class="name-h3">@club.Name</h3>
             - найкращий комп`ютерний клуб міста
         </p>
         <hr />
         <p>
         <p class="address-p">
             <span class="address-title">Адреса:</span>
-            @clubs.First().Street @clubs.First().House
-            @clubs.First().Flat
+            @club.Street @club.House
+            @club.Flat
             <span class="address-title">Телефон:</span>
-            @clubs.First().Phone<br />
+            @club.Phone<br />
             <span class="address-title">Режим роботи:</span>
-            @clubs.First().Schedule
+            @club.Schedule
         </p>
         <h3>Анонси</h3>
+        @foreach (var item in new_events)
+        {
+            <p class="last-events">
+                <a href="#">
+                    З @item.StartDate.Value.ToString("g")
+                    по @item.EndDate.Value.ToString("g") Відбудеться
+                    @item.EventType.Name по <span class="game-name">@item.Game.Name</span>
+                </a>
+            </p>
+        }
+        <p class="last-events">
+            <a href="#">
+                Та інші...
+            </a>
+        </p>
         <h3>Останні події</h3>
-        <p class="last-events">
-            <a href="#">
-                З 19.12.2019 14:00
-                по 21.12.2019 20:00 Відбувся
-                Турнір по <span class="game-name">CS GO</span>
-            </a>
-        </p>
-        <p class="last-events">
-            <a href="#">
-                З 19.12.2019 14:00
-                по 21.12.2019 20:00 Відбувся
-                Турнір по <span class="game-name">CS GO</span>
-            </a>
-        </p>
-        <p class="last-events">
-            <a href="#">
-                З 19.12.2019 14:00
-                по 21.12.2019 20:00 Відбувся
-                Турнір по <span class="game-name">CS GO</span>
-            </a>
-        </p>
+        @foreach (var item in old_events)
+        {
+            <p class="last-events">
+                <a href="#">
+                    З @item.StartDate.Value.ToString("g")
+                    по @item.EndDate.Value.ToString("g") Пройшов
+                    @item.EventType.Name по <span class="game-name">@item.Game.Name</span>
+                </a>
+            </p>
+        }
         <p class="last-events">
             <a href="#">
                 Та інші...
@@ -60,9 +67,7 @@
             {
                 <span>@item.Name</span><br />
             }
-            <a href="#">
-                Та інші...
-            </a>
+            @Html.ActionLink("Та інші...", "Index", "Game")
         </p>
         <h3>Платформи</h3>
         <p class="game-list">
@@ -70,9 +75,7 @@
             {
                 <span>@item.Name</span><br />
             }
-            <a href="#">
-                Та інші...
-            </a>
+            @Html.ActionLink("Та інші...", "Index", "Platform")
         </p>
     </div>
     <div class="img-div">

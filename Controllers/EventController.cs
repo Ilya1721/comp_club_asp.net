@@ -14,5 +14,12 @@ namespace ComputerClub.Controllers
 
             return View();
         }
+
+        public ActionResult Show(int ID)
+        {
+            ViewData["events"] = DataContext.Events.Where(e => e.EventID == ID).ToList();
+
+            return View();
+        }
     }
 }
