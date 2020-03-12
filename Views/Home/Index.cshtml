@@ -32,34 +32,30 @@
         <h3>Анонси</h3>
         @foreach (var item in new_events)
         {
-            <p class="last-events">
-                <a href="#">
-                    З @item.StartDate.Value.ToString("g")
-                    по @item.EndDate.Value.ToString("g") Відбудеться
-                    @item.EventType.Name по <span class="game-name">@item.Game.Name</span>
-                </a>
-            </p>
+        <p class="last-events">
+            <a href="@Url.Action("Show", "Event", new { ID = item.EventID }, null)">
+                З @item.StartDate.Value.ToString("g")
+                по @item.EndDate.Value.ToString("g") Відбудеться
+                @item.EventType.Name по <span class="game-name">@item.Game.Name</span>
+            </a>
+        </p>
         }
         <p class="last-events">
-            <a href="#">
-                Та інші...
-            </a>
+            @Html.ActionLink("Та інші...", "Index", "Event")
         </p>
         <h3>Останні події</h3>
         @foreach (var item in old_events)
         {
-            <p class="last-events">
-                <a href="#">
-                    З @item.StartDate.Value.ToString("g")
-                    по @item.EndDate.Value.ToString("g") Пройшов
-                    @item.EventType.Name по <span class="game-name">@item.Game.Name</span>
-                </a>
-            </p>
+        <p class="last-events">
+            <a href="@Url.Action("Show", "Event", new { ID = item.EventID }, null)">
+                З @item.StartDate.Value.ToString("g")
+                по @item.EndDate.Value.ToString("g") Пройшов
+                @item.EventType.Name по <span class="game-name">@item.Game.Name</span>
+            </a>
+        </p>
         }
         <p class="last-events">
-            <a href="#">
-                Та інші...
-            </a>
+            @Html.ActionLink("Та інші...", "Index", "Event")
         </p>
         <h3>Ігри</h3>
         <p class="game-list">
