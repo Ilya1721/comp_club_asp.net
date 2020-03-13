@@ -21,5 +21,12 @@ namespace ComputerClub.Controllers
 
             return View();
         }
+
+        public ActionResult Visits()
+        {
+            ViewData["visits"] = DataContext.UserEventPivots.Where(e => e.ApplicationUserID == 1).ToList();
+
+            return View();
+        }
     }
 }

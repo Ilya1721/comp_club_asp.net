@@ -245,7 +245,7 @@ namespace ComputerClub.DB
                     " Відбіркові ігри на лані пройдуть в нашому клубі 27-28 грудня.",
                     Price = 0.00,
                     StartDate = new DateTime(2020, 3, 11, 3, 15, 0),
-                    EndDate = new DateTime(2020, 4, 11, 3, 15, 0)
+                    EndDate = new DateTime(2020, 4, 11, 3, 15, 0),
                 },
                 new Event
                 {
@@ -258,7 +258,7 @@ namespace ComputerClub.DB
                     " Відбіркові ігри на лані пройдуть в нашому клубі 27-28 грудня.",
                     Price = 0.00,
                     StartDate = new DateTime(2020, 12, 21, 2, 0, 0),
-                    EndDate = new DateTime(2020, 4, 11, 3, 15, 0)
+                    EndDate = new DateTime(2020, 4, 11, 3, 15, 0),
                 },
                 new Event
                 {
@@ -271,7 +271,7 @@ namespace ComputerClub.DB
                     " Відбіркові ігри на лані пройдуть в нашому клубі 27-28 грудня.",
                     Price = 0.00,
                     StartDate = new DateTime(2020, 01, 08, 3, 15, 0),
-                    EndDate = new DateTime(2020, 01, 10, 3, 15, 1)
+                    EndDate = new DateTime(2020, 01, 10, 3, 15, 1),
                 },
                 new Event
                 {
@@ -280,8 +280,8 @@ namespace ComputerClub.DB
                     GameID = null,
                     Description = "Ви завжди можете прийти та пограти в нашому клубі",
                     Price = 10.00,
-                    StartDate = null,
-                    EndDate = null,
+                    StartDate = new DateTime(2020, 12, 21, 15, 0, 0),
+                    EndDate = new DateTime(2020, 12, 21, 19, 0, 0),
                 },
                 new Event
                 {
@@ -294,7 +294,7 @@ namespace ComputerClub.DB
                     " Відбіркові ігри на лані пройдуть в нашому клубі 27-28 грудня.",
                     Price = 0.00,
                     StartDate = new DateTime(2020, 12, 23, 3, 15, 0),
-                    EndDate = new DateTime(2020, 12, 27, 3, 15, 0)
+                    EndDate = new DateTime(2020, 12, 27, 3, 15, 0),
                 },
                 new Event
                 {
@@ -302,9 +302,9 @@ namespace ComputerClub.DB
                     HallID = 2,
                     GameID = null,
                     Description = "Ви завжди можете прийти та пограти в нашому клубі",
-                    Price = 0.00,
-                    StartDate = null,
-                    EndDate = null
+                    Price = 20.00,
+                    StartDate = new DateTime(2020, 11, 21, 9, 0, 0),
+                    EndDate = new DateTime(2020, 11, 21, 15, 0, 0),
                 },
                 new Event
                 {
@@ -312,13 +312,56 @@ namespace ComputerClub.DB
                     HallID = 3,
                     GameID = null,
                     Description = "Ви завжди можете прийти та пограти в нашому клубі",
-                    Price = 0.00,
-                    StartDate = null,
-                    EndDate = null
+                    Price = 30.00,
+                    StartDate = new DateTime(2020, 12, 23, 14, 0, 0),
+                    EndDate = new DateTime(2020, 12, 23, 18, 0, 0),
                 }
             };
 
             Events.ForEach(g => context.Events.Add(g));
+            context.SaveChanges();
+
+            List<UserEventPivot> UserEventPivots = new List<UserEventPivot>
+            {
+                new UserEventPivot
+                {
+                    ApplicationUserID = 1,
+                    EventID = 4,
+                    EventRoleID = 5,
+                    Place = 17,
+                    StartDate = new DateTime(2020, 12, 23, 14, 0, 0),
+                    EndDate = new DateTime(2020, 12, 23, 18, 0, 0),
+                },
+                new UserEventPivot
+                {
+                    ApplicationUserID = 1,
+                    EventID = 6,
+                    EventRoleID = 5,
+                    Place = 18,
+                    StartDate = new DateTime(2020, 12, 24, 14, 0, 0),
+                    EndDate = new DateTime(2020, 12, 24, 18, 0, 0),
+                },
+                new UserEventPivot
+                {
+                    ApplicationUserID = 1,
+                    EventID = 7,
+                    EventRoleID = 5,
+                    Place = 19,
+                    StartDate = new DateTime(2020, 12, 25, 15, 0, 0),
+                    EndDate = new DateTime(2020, 12, 25, 19, 0, 0),
+                },
+                new UserEventPivot
+                {
+                    ApplicationUserID = 1,
+                    EventID = 1,
+                    EventRoleID = 4,
+                    Place = 17,
+                    StartDate = new DateTime(2020, 12, 26, 14, 0, 0),
+                    EndDate = new DateTime(2020, 12, 28, 18, 0, 0),
+                },
+            };
+
+            UserEventPivots.ForEach(g => context.UserEventPivots.Add(g));
             context.SaveChanges();
         }      
     }

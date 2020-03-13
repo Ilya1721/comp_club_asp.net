@@ -21,6 +21,7 @@ namespace ComputerClub.DB
         public DbSet<EventRole> EventRoles { get; set; }
         public DbSet<Hall> Halls { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<UserEventPivot> UserEventPivots { get; set; }
         //public DbSet<ApplicationUser> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
