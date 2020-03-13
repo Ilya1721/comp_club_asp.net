@@ -13,6 +13,56 @@
     min-height: calc(100vh - 60px);
 }
 
+.manage-div {
+    width: 1100px;
+    margin: 100px auto;
+}
+
+.manage-div dd,
+.manage-div dt
+{
+    font-size: 1.5em;
+}
+
+a:visited {
+    color: inherit;
+}
+
+.log-off-link {
+    padding-left: 15px;
+}
+
+.form-horizontal {
+    margin: 100px auto;
+    width: 1100px;
+    color: #ffef0a;
+}
+
+.form-horizontal h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 3em;
+}
+
+.form-horizontal > .form-group,
+.form-horizontal a
+{
+    font-size: 1.2em;
+}
+
+.form-horizontal .btn-submit {
+    color: #eaeaeb;
+    background: #343a40;
+    border: 0;
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-size: 1.5em;
+}
+
+.form-horizontal .btn-submit:hover {
+    background: #23272b;
+}
+
 .games > .img-div > .table,
 .platforms > .img-div > .table
 {
