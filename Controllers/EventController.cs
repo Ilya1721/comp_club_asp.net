@@ -24,7 +24,20 @@ namespace ComputerClub.Controllers
 
         public ActionResult Visits()
         {
-            ViewData["visits"] = DataContext.UserEventPivots.Where(e => e.ApplicationUserID == 1).ToList();
+            ViewData["visits"] = DataContext.UserEventPivots.
+                Where(e => e.ApplicationUserEmail == User.Identity.Name)
+                .Where(e => e.Event.GameID == null)
+                .ToList();
+
+            return View();
+        }
+
+        public ActionResult EventParticipations()
+        {
+            ViewData["participations"] = DataContext.UserEventPivots.
+                Where(e => e.ApplicationUserEmail == User.Identity.Name)
+                .Where(e => e.Event.GameID != null)
+                .ToList();
 
             return View();
         }

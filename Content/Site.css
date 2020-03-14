@@ -13,6 +13,18 @@
     min-height: calc(100vh - 60px);
 }
 
+.admin-span {
+    font-size: 1.5em;
+    color: #ffef0a;
+    text-decoration: underline;
+    padding: 15px 0;
+    display: block;
+}
+
+.admin-hr {
+    border-style: solid;
+}
+
 .manage-div {
     width: 1100px;
     margin: 100px auto;
@@ -103,7 +115,8 @@ a:visited {
 
 .games > .img-div, .platforms > .img-div
 {
-    margin: auto 50px;
+    margin: 20px auto;
+    padding-left: 10px;
 }
 
 .schedule > .img-div {

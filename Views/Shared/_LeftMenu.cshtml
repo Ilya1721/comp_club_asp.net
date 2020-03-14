@@ -1,8 +1,6 @@
 ﻿<div class="left-menu">
     @Html.ActionLink("Візити", "Visits", "Event")
-    <a href="#">
-        Участь у івентах
-    </a>
+    @Html.ActionLink("Участь у івентах", "EventParticipations", "Event")
     @Html.ActionLink("Усі івенти", "Index", "Event")
     @Html.ActionLink("Усі ігри", "Index", "Game")
     @Html.ActionLink("Усі платформи", "Index", "Platform")
@@ -11,4 +9,13 @@
     <a href="#">
         Забронювати місце
     </a>
+
+    <span class="admin-span">Admin Area</span>
+    @Html.ActionLink("Клуб", "Visits", "Event")
+    @Html.ActionLink("Зали", "EventParticipations", "Event")
+    @Html.ActionLink("Жанри", "Index", "Event")
+    @Html.ActionLink("Типи івентів", "Index", "Game")
+    @Html.ActionLink("Типи відвідувачів", "Index", "Platform")
+    @Html.ActionLink("Івенти", "Price", "Club")
+
 </div>

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    var participations = ViewData["participations"] as List<ComputerClub.Models.UserEventPivot>;
+}
+
+<div class="platforms">
+    @Html.Partial("_LeftMenu")
+    <div class="img-div">
+        <h3>Усі участі</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Назва івенту</th>
+                    <th>Дата і час прибуття</th>
+                    <th>Час перебування</th>
+                    <th>Роль у івенті</th>
+                    <th>Сума</th>
+                    <th>Зал</th>
+                    <th>Місце</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in participations)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.Event.EventType.Name + " по "
+                            + item.Event.Game.Name,
+                            "Show", "Event", new { ID = item.EventID }, null )
+                        </td>
+                        <td>
+                            @item.StartDate.ToString("g")
+                        </td>
+                        <td>
+                            @{ var hours = item.EndDate.Hour - item.StartDate.Hour; }
+                            @hours годин
+                        </td>
+                        <td>@item.EventRole.Name</td>
+                        <td>
+                            @{ var sum = item.Event.Price * hours; }
+                            @sum грн.
+                        </td>
+                        <td>@item.Event.Hall.Name</td>
+                        <td>@item.Place</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

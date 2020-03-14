@@ -9,7 +9,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ComputerClub.DB
 {
-    public class ComputerClubContext : DbContext
+    public class ComputerClubContext : IdentityDbContext<ApplicationUser>
     {
         public ComputerClubContext() : base("ComputerClubContext") { }
 
@@ -24,9 +24,9 @@ namespace ComputerClub.DB
         public DbSet<UserEventPivot> UserEventPivots { get; set; }
         //public DbSet<ApplicationUser> Users { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        public static ComputerClubContext Create()
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            return new ComputerClubContext();
         }
     }
 }

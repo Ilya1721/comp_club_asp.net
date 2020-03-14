@@ -11,6 +11,11 @@ namespace ComputerClub.Controllers
 {
     public class ClubController : ApplicationController
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult Price()
         {
             return View();

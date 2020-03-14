@@ -325,36 +325,36 @@ namespace ComputerClub.DB
             {
                 new UserEventPivot
                 {
-                    ApplicationUserID = 1,
+                    ApplicationUserEmail = "test@test.com",
                     EventID = 4,
-                    EventRoleID = 5,
+                    EventRoleID = 2,
                     Place = 17,
                     StartDate = new DateTime(2020, 12, 23, 14, 0, 0),
                     EndDate = new DateTime(2020, 12, 23, 18, 0, 0),
                 },
                 new UserEventPivot
                 {
-                    ApplicationUserID = 1,
+                    ApplicationUserEmail = "test@test.com",
                     EventID = 6,
-                    EventRoleID = 5,
+                    EventRoleID = 2,
                     Place = 18,
                     StartDate = new DateTime(2020, 12, 24, 14, 0, 0),
                     EndDate = new DateTime(2020, 12, 24, 18, 0, 0),
                 },
                 new UserEventPivot
                 {
-                    ApplicationUserID = 1,
+                    ApplicationUserEmail = "test@test.com",
                     EventID = 7,
-                    EventRoleID = 5,
+                    EventRoleID = 2,
                     Place = 19,
                     StartDate = new DateTime(2020, 12, 25, 15, 0, 0),
                     EndDate = new DateTime(2020, 12, 25, 19, 0, 0),
                 },
                 new UserEventPivot
                 {
-                    ApplicationUserID = 1,
+                    ApplicationUserEmail = "test@test.com",
                     EventID = 1,
-                    EventRoleID = 4,
+                    EventRoleID = 1,
                     Place = 17,
                     StartDate = new DateTime(2020, 12, 26, 14, 0, 0),
                     EndDate = new DateTime(2020, 12, 28, 18, 0, 0),
