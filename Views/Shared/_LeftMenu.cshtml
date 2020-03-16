@@ -10,12 +10,14 @@
         Забронювати місце
     </a>
 
-    <span class="admin-span">Admin Area</span>
-    @Html.ActionLink("Клуб", "Visits", "Event")
-    @Html.ActionLink("Зали", "EventParticipations", "Event")
-    @Html.ActionLink("Жанри", "Index", "Event")
-    @Html.ActionLink("Типи івентів", "Index", "Game")
-    @Html.ActionLink("Типи відвідувачів", "Index", "Platform")
-    @Html.ActionLink("Івенти", "Price", "Club")
-
+    @if (Roles.IsUserInRole("Admin"))
+    {
+        <span class="admin-span">Admin Area</span>
+        @Html.ActionLink("Клуб", "Index", "Club")
+        @Html.ActionLink("Зали", "Index", "Hall")
+        @Html.ActionLink("Жанри", "Index", "Genre")
+        @Html.ActionLink("Типи івентів", "Index", "EventType")
+        @Html.ActionLink("Типи відвідувачів", "Index", "EventRole")
+        @Html.ActionLink("Івенти", "Index", "Event")
+    }
 </div>

@@ -11,11 +11,10 @@
 <div class="games">
     @Html.Partial("_LeftMenu")
     <div class="img-div">
-        <h3>Усі ігри</h3>
+        <h3>Наш клуб</h3>
         <table class="table">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Назва</th>
                     <th>Адреса</th>
                     <th>Телефон</th>
@@ -33,7 +32,7 @@
                     </td>
                     <td>@club.Phone</td>
                     <td>@Html.ActionLink("Розклад", "Schedule", "Club")</td>
-                    <td>@Html.ActionLink("Ціни", "Prices", "Club")</td>
+                    <td>@Html.ActionLink("Ціни", "Price", "Club")</td>
                     <td>@Html.ActionLink("Лого", "Logo", "Club")</td>
                 </tr>
             </tbody>

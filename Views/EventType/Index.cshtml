@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Event Types";
+}
+
+@{
+    var eventTypes = ViewData["eventTypes"] as List<ComputerClub.Models.EventType>;
+}
+
+<div class="games">
+    @Html.Partial("_LeftMenu")
+    <div class="img-div">
+        <h3>Усі типи івентів</h3>
+        <div class="add-div">
+            <a href="#" class="mybtn-warning">
+                Додати тип івентів
+            </a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Назва</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in eventTypes)
+                {
+                <tr>
+                    <td>@item.EventTypeID</td>
+                    <td><span>@item.Name</span></td>
+                    <td>
+                        <a href="#" class="mybtn-warning">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" class="mybtn-danger">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

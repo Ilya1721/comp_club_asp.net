@@ -13,6 +13,78 @@
     min-height: calc(100vh - 60px);
 }
 
+.submit-div {
+    display: flex;
+    justify-content: flex-start;
+    width: 720px;
+    margin: auto;
+}
+
+.submit-div .mybtn-submit {
+    margin-right: 15px;
+}
+
+.form-div {
+    display: flex;
+    width: 720px;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+.form-div label {
+    font-size: 1.25em;
+    padding-right: 15px;
+}
+
+.add-div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mybtn-submit {
+    color: #eaeaeb;
+    background: #343a40;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 35px;
+    margin-bottom: 15px;
+    font-size: 1.25em;
+}
+
+.mybtn-submit:hover {
+    background: #23272b;
+}
+
+.mybtn-warning {
+    background: #ffc107;
+    font-size: 1.25em;
+    padding: 10px 35px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    color: #212529;
+}
+
+.mybtn-warning:hover {
+    text-decoration: none;
+    color: #212529;
+    background: #e0a800;
+}
+
+.mybtn-danger {
+    background: #dc3545;
+    font-size: 1.25em;
+    padding: 10px 35px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.mybtn-danger:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #c82333;
+}
+
 .admin-span {
     font-size: 1.5em;
     color: #ffef0a;
@@ -36,8 +108,10 @@
     font-size: 1.5em;
 }
 
-a:visited {
-    color: inherit;
+a:visited,
+a:focus
+{
+    text-decoration: none;
 }
 
 .log-off-link {
@@ -66,9 +140,9 @@ a:visited {
     color: #eaeaeb;
     background: #343a40;
     border: 0;
-    border-radius: 2px;
-    padding: 5px 10px;
-    font-size: 1.5em;
+    border-radius: 5px;
+    padding: 10px 35px;
+    font-size: 1.25em;
 }
 
 .form-horizontal .btn-submit:hover {

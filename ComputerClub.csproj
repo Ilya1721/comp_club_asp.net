@@ -174,7 +174,11 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\ClubController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventRoleController.cs" />
+    <Compile Include="Controllers\EventTypeController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
+    <Compile Include="Controllers\HallController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlatformController.cs" />
@@ -224,6 +228,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -246,6 +251,12 @@
     <Content Include="Views\Event\Visits.cshtml" />
     <Content Include="Views\Event\EventParticipations.cshtml" />
     <Content Include="Views\Club\Index.cshtml" />
+    <Content Include="Views\Hall\Index.cshtml" />
+    <Content Include="Views\Genre\Index.cshtml" />
+    <Content Include="Views\EventType\Index.cshtml" />
+    <Content Include="Views\EventRole\Index.cshtml" />
+    <Content Include="Views\Club\Logo.cshtml" />
+    <Content Include="Views\Genre\Create.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

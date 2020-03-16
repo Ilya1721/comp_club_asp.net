@@ -6,11 +6,13 @@ using System.Web.Mvc;
 using ComputerClub.DB;
 using ComputerClub.Models;
 using System.Diagnostics;
+using System.Web.Security;
 
 namespace ComputerClub.Controllers
 {
     public class ClubController : ApplicationController
     {
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
@@ -22,6 +24,12 @@ namespace ComputerClub.Controllers
         }
 
         public ActionResult Schedule()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Logo()
         {
             return View();
         }

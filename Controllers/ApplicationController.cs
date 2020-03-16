@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using ComputerClub.Models;
 using ComputerClub.DB;
+using System.Globalization;
+using System.Threading;
 
 namespace ComputerClub.Controllers
 {
@@ -18,6 +20,7 @@ namespace ComputerClub.Controllers
         public ApplicationController()
         {
             ViewData["clubs"] = DataContext.Clubs.ToList();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
         }
 
     }
