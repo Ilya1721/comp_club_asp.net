@@ -22,7 +22,6 @@ namespace ComputerClub.DB
         public DbSet<Hall> Halls { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<UserEventPivot> UserEventPivots { get; set; }
-        //public DbSet<ApplicationUser> Users { get; set; }
 
         public static ComputerClubContext Create()
         {

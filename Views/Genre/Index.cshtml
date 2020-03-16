@@ -5,6 +5,7 @@
 
 @{
     var genres = ViewData["genres"] as List<ComputerClub.Models.Genre>;
+    var i = 1;
 }
 
 <div class="games">
@@ -30,18 +31,21 @@
                 @foreach (var item in genres)
                 {
                     <tr>
-                        <td>@item.GenreID</td>
+                        <td>@i @{i++;}</td>
                         <td><span>@item.Name</span></td>
                         <td>
-                            <a href='@Url.Action("Edit", "Genre")'
+                            <a href='@Url.Action("Edit", "Genre",
+                                    new { GenreID = item.GenreID })'
                                class="mybtn-warning">
                                 Edit
                             </a>
                         </td>
                         <td>
-                            <a href="#" class="mybtn-danger">
-                                Delete
-                            </a>
+                            <form action='@Url.Action("Delete", "Genre",
+                                         new { GenreID = item.GenreID })'
+                                  method="post">
+                                <input type="submit" class="mybtn-danger" value="Delete">
+                            </form>
                         </td>
                     </tr>
                 }

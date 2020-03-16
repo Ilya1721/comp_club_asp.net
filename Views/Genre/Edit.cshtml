@@ -1,0 +1,33 @@
+﻿@using ComputerClub.Models
+@model ComputerClub.Models.Genre
+@{
+    ViewBag.Title = "Edit Genre";
+    var genre = ViewData["genre"] as Genre;
+}
+
+<section id="genreCreateForm">
+    @using (Html.BeginForm("Update", "Genre", new { GenreID = genre.GenreID,
+        ReturnUrl = Url.Action("Index", "Genre"), },
+        FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <h2>@ViewBag.Title</h2>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-div">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value = genre.Name })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="submit-div">
+            <input type="submit" value="Submit" class="mybtn-submit" />
+            <a href="@Url.Action("Index", "Genre")" class="mybtn-danger">
+                Cancel
+            </a>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
