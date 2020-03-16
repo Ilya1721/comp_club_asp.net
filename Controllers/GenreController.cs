@@ -56,7 +56,7 @@ namespace ComputerClub.Controllers
         public RedirectResult Update(int? GenreID)
         { 
             var Context = DataContext;
-            Context.Genres.FirstOrDefault(g => g.GenreID == GenreID)
+            Context.Genres.Find(GenreID)
                 .Name = Request.Params["Name"];
             Context.SaveChanges();
 
