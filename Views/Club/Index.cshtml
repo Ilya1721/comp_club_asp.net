@@ -12,6 +12,13 @@
     @Html.Partial("_LeftMenu")
     <div class="img-div">
         <h3>Наш клуб</h3>
+        <div class="add-div">
+            <a href='@Url.Action("Edit", "Club",
+               new { ClubID = club.ClubID })'
+               class="mybtn-warning">
+                Редагувати клуб
+            </a>
+        </div>
         <table class="table">
             <thead>
                 <tr>

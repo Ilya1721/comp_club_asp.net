@@ -5,6 +5,7 @@
 
 @{
     var eventTypes = ViewData["eventTypes"] as List<ComputerClub.Models.EventType>;
+    var i = 1;
 }
 
 <div class="games">
@@ -12,7 +13,8 @@
     <div class="img-div">
         <h3>Усі типи івентів</h3>
         <div class="add-div">
-            <a href="#" class="mybtn-warning">
+            <a href='@Url.Action("Create", "EventType")'
+               class="mybtn-warning">
                 Додати тип івентів
             </a>
         </div>
@@ -29,17 +31,21 @@
                 @foreach (var item in eventTypes)
                 {
                 <tr>
-                    <td>@item.EventTypeID</td>
+                    <td>@i @{i++;}</td>
                     <td><span>@item.Name</span></td>
                     <td>
-                        <a href="#" class="mybtn-warning">
+                        <a href='@Url.Action("Edit", "EventType",
+                                    new { EventTypeID = item.EventTypeID })'
+                           class="mybtn-warning">
                             Edit
                         </a>
                     </td>
                     <td>
-                        <a href="#" class="mybtn-danger">
-                            Delete
-                        </a>
+                        <form action='@Url.Action("Delete", "EventType",
+                                         new { EventTypeID = item.EventTypeID })'
+                              method="post" class="delete-form">
+                            <input type="submit" class="mybtn-danger" value="Delete">
+                        </form>
                     </td>
                 </tr>
                 }

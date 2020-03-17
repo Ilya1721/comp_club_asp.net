@@ -5,6 +5,7 @@
 
 @{
     var eventRoles = ViewData["eventRoles"] as List<ComputerClub.Models.EventRole>;
+    var i = 1;
 }
 
 <div class="games">
@@ -12,7 +13,8 @@
     <div class="img-div">
         <h3>Усі типи відвідувачів</h3>
         <div class="add-div">
-            <a href="#" class="mybtn-warning">
+            <a href='@Url.Action("Create", "EventRole")'
+               class="mybtn-warning">
                 Додати тип відвідувача
             </a>
         </div>
@@ -29,17 +31,21 @@
                 @foreach (var item in eventRoles)
                 {
                 <tr>
-                    <td>@item.EventRoleID</td>
+                    <td>@i @{i++;}</td>
                     <td><span>@item.Name</span></td>
                     <td>
-                        <a href="#" class="mybtn-warning">
+                        <a href='@Url.Action("Edit", "EventRole",
+                                    new { EventRoleID = item.EventRoleID })'
+                           class="mybtn-warning">
                             Edit
                         </a>
                     </td>
                     <td>
-                        <a href="#" class="mybtn-danger">
-                            Delete
-                        </a>
+                        <form action='@Url.Action("Delete", "EventRole",
+                                         new { EventRoleID = item.EventRoleID })'
+                              method="post" class="delete-form">
+                            <input type="submit" class="mybtn-danger" value="Delete">
+                        </form>
                     </td>
                 </tr>
                 }

@@ -7,6 +7,7 @@ using ComputerClub.DB;
 using ComputerClub.Models;
 using System.Diagnostics;
 using System.Web.Security;
+using System.Net;
 
 namespace ComputerClub.Controllers
 {
@@ -32,6 +33,38 @@ namespace ComputerClub.Controllers
         public ActionResult Logo()
         {
             return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public ActionResult Edit(int? ClubID)
+        {
+            if (ClubID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewData["club"] = DataContext.Clubs.Find(ClubID);
+
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost, ActionName("Update")]
+        [ValidateAntiForgeryToken]
+        public RedirectResult Update(int? ClubID)
+        {
+            var Context = DataContext;
+            var club = Context.Clubs.Find(ClubID);
+            club.Name = Request.Params["Name"];
+            club.Street = Request.Params["Street"];
+            club.House = Request.Params["House"];
+            club.Flat = Request.Params["Flat"];
+            club.Phone = Request.Params["Phone"];
+
+            Context.SaveChanges();
+
+            return Redirect(Url.Action("Index", "Club"));
         }
 
         public FileContentResult GetPriceImage(int? itemId)

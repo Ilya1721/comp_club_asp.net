@@ -5,6 +5,7 @@
 
 @{
     var halls = ViewData["halls"] as List<ComputerClub.Models.Hall>;
+    var i = 1;
 }
 
 <div class="games">
@@ -12,7 +13,8 @@
     <div class="img-div">
         <h3>Усі зали</h3>
         <div class="add-div">
-            <a href="#" class="mybtn-warning">
+            <a href='@Url.Action("Create", "Hall")'
+               class="mybtn-warning">
                 Додати зал
             </a>
         </div>
@@ -29,17 +31,21 @@
                 @foreach (var item in halls)
                 {
                 <tr>
-                    <td>@item.HallID</td>
+                    <td>@i @{i++;}</td>
                     <td><span>@item.Name</span></td>
                     <td>
-                        <a href="#" class="mybtn-warning">
+                        <a href='@Url.Action("Edit", "Hall",
+                                    new { HallID = item.HallID })'
+                           class="mybtn-warning">
                             Edit
                         </a>
                     </td>
                     <td>
-                        <a href="#" class="mybtn-danger">
-                            Delete
-                        </a>
+                        <form action='@Url.Action("Delete", "Hall",
+                                         new { HallID = item.HallID })'
+                              method="post" class="delete-form">
+                            <input type="submit" class="mybtn-danger" value="Delete">
+                        </form>
                     </td>
                 </tr>
                 }

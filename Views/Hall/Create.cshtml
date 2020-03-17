@@ -1,0 +1,31 @@
+﻿@using ComputerClub.Models
+@model ComputerClub.Models.Genre
+@{
+    ViewBag.Title = "New Hall";
+}
+
+<section id="genreCreateForm">
+    @using (Html.BeginForm("Store", "Hall", new { ReturnUrl = Url.Action("Index", "Hall") },
+        FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <h2>@ViewBag.Title</h2>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-div">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="submit-div">
+            <input type="submit" value="Submit" class="mybtn-submit" />
+            <a href="@Url.Action("Index", "Hall")" class="mybtn-danger">
+                Cancel
+            </a>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
