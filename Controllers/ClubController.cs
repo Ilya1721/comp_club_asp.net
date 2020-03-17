@@ -24,11 +24,6 @@ namespace ComputerClub.Controllers
             return View();
         }
 
-        public ActionResult Schedule()
-        {
-            return View();
-        }
-
         [Authorize(Roles = "Admin")]
         public ActionResult Logo()
         {

@@ -7,6 +7,7 @@ using ComputerClub.Models;
 using System.Drawing;
 using ComputerClub.Infrastructure;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 
 namespace ComputerClub.DB
 {
@@ -34,8 +35,8 @@ namespace ComputerClub.DB
                     Name = "Windows",
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\windows.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\windows.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 }
             };
@@ -52,8 +53,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\csgo.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\csgo.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
                 new Game
@@ -63,8 +64,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\dota2.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\dota2.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
                 new Game
@@ -74,8 +75,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\lol.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\lol.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
                 new Game
@@ -85,8 +86,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\gta5.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\gta5.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
                 new Game
@@ -96,8 +97,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\red-alert3.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\red-alert3.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
                 new Game
@@ -107,8 +108,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\red-dead-redemption2.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\red-dead-redemption2.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
                 new Game
@@ -118,8 +119,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\serious-sam2.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\serious-sam2.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
                 new Game
@@ -129,8 +130,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\fifa18.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\fifa18.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
                 new Game
@@ -140,8 +141,8 @@ namespace ComputerClub.DB
                     PlatformID = 1,
                     Image = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\pes18.jfif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\pes18.jfif"),
+                    ImageFormat.Jpeg),
                     ImageMimeType = "image/jpeg",
                 },
             };
@@ -161,13 +162,13 @@ namespace ComputerClub.DB
                     Schedule = "Кожний день. 9.00-07.00",
                     PriceImage = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\price.gif")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\price.gif"),
+                    ImageFormat.Gif),
                     PriceImageMimeType = "image/gif",
                     LogoImage = ImageLoader.
                     ImageToByteArray(Image.
-                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\logo.png")
-                    ),
+                    FromFile(@"D:\VisualStudio Projects\ComputerClub\ComputerClub\Content\img\logo.png"),
+                    ImageFormat.Png),
                     LogoImageMimeType = "image/png",
                 }
             };

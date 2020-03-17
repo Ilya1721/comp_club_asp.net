@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Schedule";
+}
+
+@{
+    var clubs = ViewData["clubs"] as List<ComputerClub.Models.Club>;
+    var club = clubs.First();
+}
+
+<div class="schedule">
+    @Html.Partial("_LeftMenu")
+    <div class="img-div">
+        <h3>Режим роботи</h3>
+        @if (Roles.IsUserInRole("Admin"))
+        {
+            <div class="add-div">
+                <a href='@Url.Action("Edit", "Schedule",
+               new { ClubID = club.ClubID })'
+                   class="mybtn-warning">
+                    Редагувати розклад
+                </a>
+            </div>
+        }
+        <p>
+            Клуб працює @club.Schedule
+        </p>
+    </div>
+</div>
+

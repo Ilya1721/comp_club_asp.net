@@ -10,11 +10,11 @@ namespace ComputerClub.Infrastructure
 {
     public class ImageLoader
     {
-        public static byte[] ImageToByteArray(Image theImage)
+        public static byte[] ImageToByteArray(Image theImage, ImageFormat imageFormat)
         {
             using (MemoryStream memoryStream = new MemoryStream())
             {
-                theImage.Save(memoryStream, ImageFormat.Jpeg);
+                theImage.Save(memoryStream, imageFormat);
                 return memoryStream.ToArray();
             }
         }

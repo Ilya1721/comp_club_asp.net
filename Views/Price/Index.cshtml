@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Prices";
+}
+
+@{
+    var clubs = ViewData["clubs"] as List<ComputerClub.Models.Club>;
+    var club = clubs.First();
+}
+
+<div class="prices">
+    @Html.Partial("_LeftMenu")
+    <div class="img-div">
+        <h3>Ціни</h3>
+        @if (Roles.IsUserInRole("Admin"))
+        {
+            <div class="add-div">
+                <a href='@Url.Action("Edit", "Price",
+               new { ClubID = club.ClubID })'
+                   class="mybtn-warning">
+                    Редагувати ціни
+                </a>
+            </div>
+        }
+        <img src='@Url.Action("GetPriceImage", "Club", new { itemId = clubs.First().ClubID })'>
+    </div>
+</div>
+
