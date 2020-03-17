@@ -17,7 +17,7 @@
         <header>
             <div class="image-div">
                 <a href="/">
-                    <img src="http://cyberzone.kiev.ua/img/logo.png">
+                    <img src='@Url.Action("GetLogoImage", "Club", new { itemId = clubs.First().ClubID })'>
                 </a>
             </div>
             <div class="nav-div">

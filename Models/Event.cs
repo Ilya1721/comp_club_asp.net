@@ -17,7 +17,6 @@ namespace ComputerClub.Models
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
 
-
         public virtual EventType EventType { get; set; }
         public virtual Hall Hall { get; set; }
         public virtual Game Game { get; set; }

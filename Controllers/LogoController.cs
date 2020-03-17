@@ -1,7 +1,6 @@
 ﻿using ComputerClub.Infrastructure;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -12,7 +11,7 @@ using System.Web.Mvc;
 
 namespace ComputerClub.Controllers
 {
-    public class PriceController : ApplicationController
+    public class LogoController : ApplicationController
     {
         public ActionResult Index()
         {
@@ -61,8 +60,8 @@ namespace ComputerClub.Controllers
                     ImageToByteArray(Image.FromFile(Server.MapPath("~/Content/img/" + fileName)), imageFormat);
                 var PriceImageMimeType = imageFormat;
 
-                club.PriceImage = PriceImage;
-                club.PriceImageMimeType = "image/" + extension.Substring(1);
+                club.LogoImage = PriceImage;
+                club.LogoImageMimeType = "image/" + extension.Substring(1);
 
                 Context.SaveChanges();
             }

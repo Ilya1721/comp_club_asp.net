@@ -11,6 +11,15 @@
     @Html.Partial("_LeftMenu")
     <div class="img-div">
         <h3>Усі івенти</h3>
+        @if (Roles.IsUserInRole("Admin"))
+        {
+            <div class="add-div">
+                <a href='@Url.Action("Create", "Event")'
+                   class="mybtn-warning">
+                    Додати івент
+                </a>
+            </div>
+        }
         <table class="table">
             <thead>
                 <tr>

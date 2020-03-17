@@ -180,6 +180,7 @@
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HallController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogoController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlatformController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
@@ -257,7 +258,6 @@
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\EventType\Index.cshtml" />
     <Content Include="Views\EventRole\Index.cshtml" />
-    <Content Include="Views\Club\Logo.cshtml" />
     <Content Include="Views\Genre\Create.cshtml" />
     <Content Include="Views\Genre\Edit.cshtml" />
     <Content Include="Views\Hall\Create.cshtml" />
@@ -271,6 +271,9 @@
     <Content Include="Views\Schedule\Edit.cshtml" />
     <Content Include="Views\Price\Index.cshtml" />
     <Content Include="Views\Price\Edit.cshtml" />
+    <Content Include="Views\Logo\Index.cshtml" />
+    <Content Include="Views\Logo\Edit.cshtml" />
+    <Content Include="Views\Event\Create.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

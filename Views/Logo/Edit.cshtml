@@ -1,17 +1,18 @@
 ﻿@using ComputerClub.Models
 @model ComputerClub.Models.Club
 @{
-    ViewBag.Title = "Edit Price";
+    ViewBag.Title = "Edit Logo";
     var club = ViewData["club"] as Club;
 }
 
 <section id="genreCreateForm">
-    @using (Html.BeginForm("Update", "Price", new
+    @using (Html.BeginForm("Update", "Logo", new
     {
         ClubID = club.ClubID,
-        ReturnUrl = Url.Action("Index", "Price"),
+        ReturnUrl = Url.Action("Index", "Logo"),
     },
-        FormMethod.Post, new {
+        FormMethod.Post, new
+        {
             @class = "form-horizontal",
             role = "form",
             enctype = "multipart/form-data"
@@ -27,7 +28,7 @@
 
         <div class="submit-div">
             <input type="submit" value="Submit" class="mybtn-submit" />
-            <a href="@Url.Action("Index", "Price")" class="mybtn-danger">
+            <a href="@Url.Action("Index", "Logo")" class="mybtn-danger">
                 Cancel
             </a>
         </div>
