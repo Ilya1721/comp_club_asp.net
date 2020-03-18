@@ -1,0 +1,120 @@
+﻿@using ComputerClub.Models
+@model ComputerClub.Models.Event
+@{
+    ViewBag.Title = "Edit Event";
+    var eventTypes = ViewData["eventTypes"] as List<EventType>;
+    var halls = ViewData["halls"] as List<Hall>;
+    var games = ViewData["games"] as List<Game>;
+    var theEvent = ViewData["event"] as Event;
+}
+
+<section id="genreCreateForm">
+    @using (Html.BeginForm("Update", "Event", new
+    {
+        EventID = theEvent.EventID,
+        ReturnUrl = Url.Action("Index", "Event"),
+    },
+        FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <h2>@ViewBag.Title</h2>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="big-form-div">
+            <div class="myform-group">
+                <label class="control-label" for="EventTypeID">Тип івенту</label><br />
+                <select name="EventTypeID" id="EventTypeID"
+                        selected value=@theEvent.EventTypeID>
+                    <option value=@theEvent.EventTypeID>
+                        @theEvent.EventType.Name
+                    </option>
+                    @foreach (var item in eventTypes)
+                    {
+                        if (item.EventTypeID != theEvent.EventTypeID)
+                        {
+                            <option value=@item.EventTypeID>
+                                @item.Name
+                            </option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="HallID">Зал</label><br />
+                <select name="HallID" id="HallID"
+                        selected value=@theEvent.HallID>
+                    <option value=@theEvent.HallID>
+                        @theEvent.Hall.Name
+                    </option>
+                    @foreach (var item in halls)
+                    {
+                        if (item.HallID != theEvent.HallID)
+                        {
+                            <option value=@item.HallID>
+                                @item.Name
+                            </option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="GameID">Гра</label><br />
+                <select name="GameID" id="GameID"
+                        selected value=@theEvent.GameID>
+                    <option value=@theEvent.GameID>
+                        @theEvent.Game.Name
+                    </option>
+                    @foreach (var item in games)
+                    {
+                        if (item.GameID != theEvent.GameID)
+                        {
+                            <option value=@item.GameID>
+                                @item.Name
+                            </option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="Description">Опис</label><br />
+                <textarea name="Description" id="Description"
+                          rows="10" cols="40">   
+                    @theEvent.Description
+                </textarea>
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="Price">Ціна грн.</label><br />
+                <input type="number" name="Price" id="Price" value=@theEvent.Price />
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="StartDate">Дата початку</label><br />
+                @Html.TextBoxFor(m => m.StartDate, "{0:dd.MM.yyyy}",
+                    new { @Value = theEvent.StartDate.Value.ToString("g"),
+                        @type = "datetime"
+                    })
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="EndDate">Дата закінчення</label><br />
+                @Html.TextBoxFor(m => m.EndDate, "{0:dd.MM.yyyy}",
+                    new { @Value=theEvent.EndDate.Value.ToString("g"),
+                        @type ="datetime" })
+            </div>
+        </div>
+
+        <div class="submit-div">
+            <input type="submit" value="Submit" class="mybtn-submit" />
+            <a href="@Url.Action("Index", "Event")" class="mybtn-danger">
+                Cancel
+            </a>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

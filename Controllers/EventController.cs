@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -61,25 +62,36 @@ namespace ComputerClub.Controllers
         public RedirectResult Store()
         {
             var Context = DataContext;
-            Context.EventRoles.Add(new Models.EventRole
+            Debug.WriteLine(Request.Params["EventTypeID"]);
+            Context.Events.Add(new Models.Event
             {
-                Name = Request.Params["Name"]
+                EventTypeID = int.Parse(Request.Params["EventTypeID"]),
+                HallID = int.Parse(Request.Params["HallID"]),
+                GameID = int.Parse(Request.Params["GameID"]),
+                Description = Request.Params["Description"],
+                Price = int.Parse(Request.Params["Price"]),
+                StartDate = DateTime.Parse(Request.Params["StartDate"]),
+                EndDate = DateTime.Parse(Request.Params["EndDate"]),
             });
             Context.SaveChanges();
 
-            return Redirect(Url.Action("Index", "EventRole"));
+            return Redirect(Url.Action("Index", "Event"));
         }
 
         [Authorize(Roles = "Admin")]
         [HttpGet]
-        public ActionResult Edit(int? EventRoleID)
+        public ActionResult Edit(int? EventID)
         {
-            if (EventRoleID == null)
+            if (EventID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            ViewData["eventRole"] = DataContext.EventRoles.Find(EventRoleID);
+            var Context = DataContext;
+            ViewData["eventTypes"] = Context.EventTypes.ToList();
+            ViewData["halls"] = Context.Halls.ToList();
+            ViewData["games"] = Context.Games.ToList();
+            ViewData["event"] = Context.Events.Find(EventID);
 
             return View();
         }

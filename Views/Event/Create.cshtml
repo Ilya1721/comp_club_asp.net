@@ -8,7 +8,7 @@
 }
 
 <section id="genreCreateForm">
-    @using (Html.BeginForm("Update", "Club", new
+    @using (Html.BeginForm("Store", "Event", new
     {
         ReturnUrl = Url.Action("Index", "Event"),
     },
@@ -19,7 +19,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="big-form-div">
             <div class="myform-group">
-                <label class="control-label" for="EventTypeID">Тип івенту</label>
+                <label class="control-label" for="EventTypeID">Тип івенту</label><br/>
                 <select name="EventTypeID" id="EventTypeID">
                     @foreach (var item in eventTypes)
                     {
@@ -31,7 +31,7 @@
             </div>
 
             <div class="myform-group">
-                <label class="control-label" for="HallID">Зал</label>
+                <label class="control-label" for="HallID">Зал</label><br/>
                 <select name="HallID" id="HallID">
                     @foreach (var item in halls)
                     {
@@ -43,7 +43,7 @@
             </div>
 
             <div class="myform-group">
-                <label class="control-label" for="GameID">Гра</label>
+                <label class="control-label" for="GameID">Гра</label><br/>
                 <select name="GameID" id="GameID">
                     @foreach (var item in games)
                     {
@@ -55,24 +55,24 @@
             </div>
 
             <div class="myform-group">
-                <label class="control-label" for="Description">Опис</label>
+                <label class="control-label" for="Description">Опис</label><br/>
                 <textarea name="Description" id="Description"
                           rows="10" cols="40">   
                 </textarea>
             </div>
 
             <div class="myform-group">
-                <label class="control-label" for="Price">Ціна</label>
+                <label class="control-label" for="Price">Ціна</label><br/>
                 <input type="number" name="Price" id="Price" />
             </div>
 
             <div class="myform-group">
-                <label class="control-label" for="StartDate">Дата початку</label>
+                <label class="control-label" for="StartDate">Дата початку</label><br/>
                 <input type="datetime-local" name="StartDate" id="StartDate" />
             </div>
 
             <div class="myform-group">
-                <label class="control-label" for="EndDate">Дата закінчення</label>
+                <label class="control-label" for="EndDate">Дата закінчення</label><br/>
                 <input type="datetime-local" name="EndDate" id="EndDate" />
             </div>
         </div>

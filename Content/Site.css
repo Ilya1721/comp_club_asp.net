@@ -17,14 +17,21 @@
     margin-top: -7px;
 }
 
-#genreCreateForm input[type="text"] {
+#genreCreateForm input[type="text"],
+#genreCreateForm input[type="number"],
+#genreCreateForm input[type="datetime-local"],
+#genreCreateForm input[type="datetime"],
+#genreCreateForm input[type="text"],
+#genreCreateForm textarea {
     color: #000;
     font-size: 1.5em;
+    width: 500px;
 }
 
 #genreCreateForm select {
     color: #000;
     font-size: 1.5em;
+    width: 500px;
 }
 
 .submit-div {
@@ -36,6 +43,7 @@
 
 .submit-div .mybtn-submit {
     margin-right: 15px;
+    color: #fff;
 }
 
 .myform-group {

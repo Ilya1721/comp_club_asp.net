@@ -28,21 +28,37 @@
                     <th>Дата і час кінця івенту</th>
                     <th>Ціна</th>
                     <th>Зал</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in events)
                 {
-                    <tr>
-                        <td>
-                            @Html.ActionLink(item.EventType.Name + " по " + item.Game.Name,
-                            "Show", "Event", new { ID = item.EventID }, null )
-                        </td>
-                        <td>@item.StartDate.Value.ToString("g")</td>
-                        <td>@item.EndDate.Value.ToString("g")</td>
-                        <td>@item.Price грн.</td>
-                        <td>@item.Hall.Name</td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.EventType.Name + " по " + item.Game.Name,
+                        "Show", "Event", new { ID = item.EventID }, null )
+                    </td>
+                    <td>@item.StartDate.Value.ToString("g")</td>
+                    <td>@item.EndDate.Value.ToString("g")</td>
+                    <td>@item.Price грн.</td>
+                    <td>@item.Hall.Name</td>
+                    <td>
+                        <a href='@Url.Action("Edit", "Event",
+                                    new { EventID = item.EventID })'
+                           class="mybtn-warning">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <form action='@Url.Action("Delete", "Event",
+                                         new { EventID = item.EventID })'
+                              method="post" class="delete-form">
+                            <input type="submit" class="mybtn-danger" value="Delete">
+                        </form>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
