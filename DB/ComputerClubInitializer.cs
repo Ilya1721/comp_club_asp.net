@@ -281,8 +281,8 @@ namespace ComputerClub.DB
                     GameID = null,
                     Description = "Ви завжди можете прийти та пограти в нашому клубі",
                     Price = 10.00,
-                    StartDate = new DateTime(2020, 12, 21, 15, 0, 0),
-                    EndDate = new DateTime(2020, 12, 21, 19, 0, 0),
+                    StartDate = null,
+                    EndDate = null,
                 },
                 new Event
                 {
@@ -304,8 +304,8 @@ namespace ComputerClub.DB
                     GameID = null,
                     Description = "Ви завжди можете прийти та пограти в нашому клубі",
                     Price = 20.00,
-                    StartDate = new DateTime(2020, 11, 21, 9, 0, 0),
-                    EndDate = new DateTime(2020, 11, 21, 15, 0, 0),
+                    StartDate = null,
+                    EndDate = null,
                 },
                 new Event
                 {
@@ -314,8 +314,8 @@ namespace ComputerClub.DB
                     GameID = null,
                     Description = "Ви завжди можете прийти та пограти в нашому клубі",
                     Price = 30.00,
-                    StartDate = new DateTime(2020, 12, 23, 14, 0, 0),
-                    EndDate = new DateTime(2020, 12, 23, 18, 0, 0),
+                    StartDate = null,
+                    EndDate = null,
                 }
             };
 

@@ -174,6 +174,7 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\ClubController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventParticipationController.cs" />
     <Compile Include="Controllers\EventRoleController.cs" />
     <Compile Include="Controllers\EventTypeController.cs" />
     <Compile Include="Controllers\GameController.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Controllers\PlatformController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
+    <Compile Include="Controllers\VisitController.cs" />
     <Compile Include="DB\ComputerClubContext.cs" />
     <Compile Include="DB\ComputerClubInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -251,8 +253,6 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Event\Visits.cshtml" />
-    <Content Include="Views\Event\EventParticipations.cshtml" />
     <Content Include="Views\Club\Index.cshtml" />
     <Content Include="Views\Hall\Index.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
@@ -275,6 +275,10 @@
     <Content Include="Views\Logo\Edit.cshtml" />
     <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
+    <Content Include="Views\Visit\Index.cshtml" />
+    <Content Include="Views\EventParticipation\Index.cshtml" />
+    <Content Include="Views\Visit\Create.cshtml" />
+    <Content Include="Views\EventParticipation\Create.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

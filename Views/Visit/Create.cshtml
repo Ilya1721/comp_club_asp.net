@@ -1,0 +1,58 @@
+﻿@using ComputerClub.Models
+@model ComputerClub.Models.UserEventPivot
+@{
+    ViewBag.Title = "Зареєструватись на івент";
+    var halls = ViewData["halls"] as List<Hall>;
+}
+
+<section id="genreCreateForm">
+    @using (Html.BeginForm("Store", "Visit", new
+    {
+        ReturnUrl = Url.Action("Index", "Visit"),
+    },
+        FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <h2>@ViewBag.Title</h2>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="big-form-div">  
+            <div class="myform-group">
+                <label class="control-label" for="StartDate">Дата і час початку</label><br />
+                <input type="datetime-local" name="StartDate" id="StartDate" />
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="EndDate">Дата і час закінчення</label><br />
+                <input type="datetime-local" name="EndDate" id="EndDate" />
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="HallID">Зал</label><br />
+                <select name="HallID" id="HallID">
+                    @foreach (var item in halls)
+                    {
+                        <option value=@item.HallID>
+                            @item.Name
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="Description">Місце</label><br />
+                <input type="number" name="Place" id="Place" class="form-control">
+            </div>            
+        </div>
+
+        <div class="submit-div">
+            <input type="submit" value="Submit" class="mybtn-submit" />
+            <a href="@Url.Action("Index", "Visit")" class="mybtn-danger">
+                Cancel
+            </a>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -24,26 +24,6 @@ namespace ComputerClub.Controllers
             return View();
         }
 
-        public ActionResult Visits()
-        {
-            ViewData["visits"] = DataContext.UserEventPivots.
-                Where(e => e.ApplicationUserEmail == User.Identity.Name)
-                .Where(e => e.Event.GameID == null)
-                .ToList();
-
-            return View();
-        }
-
-        public ActionResult EventParticipations()
-        {
-            ViewData["participations"] = DataContext.UserEventPivots.
-                Where(e => e.ApplicationUserEmail == User.Identity.Name)
-                .Where(e => e.Event.GameID != null)
-                .ToList();
-
-            return View();
-        }
-
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Create()
@@ -62,7 +42,6 @@ namespace ComputerClub.Controllers
         public RedirectResult Store()
         {
             var Context = DataContext;
-            Debug.WriteLine(Request.Params["EventTypeID"]);
             Context.Events.Add(new Models.Event
             {
                 EventTypeID = int.Parse(Request.Params["EventTypeID"]),
@@ -99,28 +78,35 @@ namespace ComputerClub.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Update")]
         [ValidateAntiForgeryToken]
-        public RedirectResult Update(int? EventRoleID)
+        public RedirectResult Update(int? EventID)
         {
             var Context = DataContext;
-            Context.EventRoles.Find(EventRoleID)
-                .Name = Request.Params["Name"];
+            var theEvent = Context.Events.Find(EventID);
+            theEvent.EventTypeID = int.Parse(Request.Params["EventTypeID"]);
+            theEvent.HallID = int.Parse(Request.Params["HallID"]);
+            theEvent.GameID = int.Parse(Request.Params["GameID"]);
+            theEvent.Description = Request.Params["Description"];
+            theEvent.Price = int.Parse(Request.Params["Price"]);
+            theEvent.StartDate = DateTime.Parse(Request.Params["StartDate"]);
+            theEvent.EndDate = DateTime.Parse(Request.Params["EndDate"]);
+                
             Context.SaveChanges();
 
-            return Redirect(Url.Action("Index", "EventRole"));
+            return Redirect(Url.Action("Index", "Event"));
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public RedirectResult Delete(int? EventRoleID)
+        public RedirectResult Delete(int? EventID)
         {
-            if (EventRoleID != null)
+            if (EventID != null)
             {
                 var Context = DataContext;
-                Context.EventRoles.Remove(Context.EventRoles.Find(EventRoleID));
+                Context.Events.Remove(Context.Events.Find(EventID));
                 Context.SaveChanges();
             }
 
-            return Redirect(Url.Action("Index", "EventRole"));
+            return Redirect(Url.Action("Index", "Event"));
         }
     }
 }

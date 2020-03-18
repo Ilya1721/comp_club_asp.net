@@ -11,6 +11,12 @@
     @Html.Partial("_LeftMenu")
     <div class="img-div">
         <h3>Усі участі</h3>
+        <div class="center-add-div">
+            <a href='@Url.Action("Create", "Visit")'
+               class="mybtn-warning">
+                Зареєструватись
+            </a>
+        </div>
         <table class="table">
             <thead>
                 <tr>

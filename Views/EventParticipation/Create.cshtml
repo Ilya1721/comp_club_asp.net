@@ -1,0 +1,75 @@
+﻿@using ComputerClub.Models
+@model ComputerClub.Models.UserEventPivot
+@{
+    ViewBag.Title = "Зареєструватись на івент";
+    var events = ViewData["events"] as List<Event>;
+    var eventRoles = ViewData["eventRoles"] as List<EventRole>;
+}
+
+<section id="genreCreateForm">
+    @using (Html.BeginForm("Store", "EventParticipation", new
+    {
+        ReturnUrl = Url.Action("Index", "EventParticipation"),
+    },
+        FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <h2>@ViewBag.Title</h2>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="big-form-div">
+            <div class="myform-group">
+                <label class="control-label" for="StartDate">Дата і час прибуття</label><br />
+                <input type="datetime-local" name="StartDate" id="StartDate" />
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="EndDate">Дата і час закінчення</label><br />
+                <input type="datetime-local" name="EndDate" id="EndDate" />
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="EventID">Івент</label><br />
+                <select name="EventID" id="EventID">
+                    @foreach (var item in events)
+                    {
+                        <option value=@item.EventID>
+                            @item.EventType.Name по @item.Game.Name
+                            @item.StartDate.Value.ToString("dd.mm.yyyy")
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="EventRoleID">Роль у івенті</label><br />
+                <select name="EventRoleID" id="EventRoleID">
+                    @foreach (var item in eventRoles)
+                    {
+                        if(item.Name != "Організатор" || Roles.IsUserInRole("Admin"))
+                        {
+                            <option value=@item.EventRoleID>
+                                @item.Name
+                            </option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="myform-group">
+                <label class="control-label" for="Description">Місце</label><br />
+                <input type="number" name="Place" id="Place" class="form-control">
+            </div>
+        </div>
+
+        <div class="submit-div">
+            <input type="submit" value="Submit" class="mybtn-submit" />
+            <a href="@Url.Action("Index", "EventParticipation")" class="mybtn-danger">
+                Cancel
+            </a>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
