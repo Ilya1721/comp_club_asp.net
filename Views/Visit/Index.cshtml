@@ -33,7 +33,8 @@
                     <tr>
                         <td>@item.StartDate.ToString("g")</td>
                         <td>
-                            @{ var hours = item.EndDate.Hour - item.StartDate.Hour; }
+                            @{ var hours = item.EndDate.Hour - item.StartDate.Hour
+                                           + 24 * (item.EndDate.Day - item.StartDate.Day); }
                             @hours годин
                         </td>
                         <td>
