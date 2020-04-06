@@ -28,8 +28,11 @@
                     <th>Дата і час кінця івенту</th>
                     <th>Ціна</th>
                     <th>Зал</th>
-                    <th></th>
-                    <th></th>
+                    @if (Roles.IsUserInRole("Admin"))
+                    {
+                        <th></th>
+                        <th></th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -44,20 +47,23 @@
                     <td>@item.EndDate.Value.ToString("g")</td>
                     <td>@item.Price грн.</td>
                     <td>@item.Hall.Name</td>
-                    <td>
-                        <a href='@Url.Action("Edit", "Event",
+                    @if (Roles.IsUserInRole("Admin"))
+                    {
+                        <td>
+                            <a href='@Url.Action("Edit", "Event",
                                     new { EventID = item.EventID })'
-                           class="mybtn-warning">
-                            Edit
-                        </a>
-                    </td>
-                    <td>
-                        <form action='@Url.Action("Delete", "Event",
+                               class="mybtn-warning">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            <form action='@Url.Action("Delete", "Event",
                                          new { EventID = item.EventID })'
-                              method="post" class="delete-form">
-                            <input type="submit" class="mybtn-danger" value="Delete">
-                        </form>
-                    </td>
+                                  method="post" class="delete-form">
+                                <input type="submit" class="mybtn-danger" value="Delete">
+                            </form>
+                        </td>
+                    }
                 </tr>
                 }
             </tbody>

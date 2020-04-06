@@ -5,12 +5,22 @@
 
 @{
     var platforms = ViewData["platforms"] as List<ComputerClub.Models.Platform>;
+    var i = 1;
 }
 
 <div class="platforms">
     @Html.Partial("_LeftMenu")
     <div class="img-div">
         <h3>Усі платформи</h3>
+        @if (Roles.IsUserInRole("Admin"))
+        {
+            <div class="add-div">
+                <a href='@Url.Action("Create", "Platform")'
+                   class="mybtn-warning">
+                    Додати платформу
+                </a>
+            </div>
+        }
         <table class="table">
             <thead>
                 <tr>
@@ -22,13 +32,30 @@
             <tbody>
                 @foreach (var item in platforms)
                 {
-                    <tr>
-                        <td>@item.PlatformID</td>
+                <tr>
+                    <td>@i @{i++;}</td>
+                    <td>
+                        <img src='@Url.Action("GetImage", "Platform", new { itemId = item.PlatformID })' />
+                    </td>
+                    <td><span>@item.Name</span></td>
+                    @if (Roles.IsUserInRole("Admin"))
+                    {
                         <td>
-                            <img src='@Url.Action("GetImage", "Platform", new { itemId = item.PlatformID })' />
+                            <a href='@Url.Action("Edit", "Platform",
+                                    new { PlatformID = item.PlatformID })'
+                               class="mybtn-warning">
+                                Edit
+                            </a>
                         </td>
-                        <td><span>@item.Name</span></td>
-                    </tr>
+                        <td>
+                            <form action='@Url.Action("Delete", "Platform",
+                                         new { PlatformID = item.PlatformID })'
+                                  method="post" class="delete-form">
+                                <input type="submit" class="mybtn-danger" value="Delete">
+                            </form>
+                        </td>
+                    }
+                </tr>
                 }
             </tbody>
         </table>

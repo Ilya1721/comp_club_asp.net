@@ -40,7 +40,7 @@ namespace ComputerClub.Controllers
             var Context = DataContext;
             var club = Context.Clubs.Find(ClubID);
             var upload = HttpContext.Request.Files[0];
-            if (upload != null)
+            if (upload.FileName != "")
             {
                 string fileName = System.IO.Path.GetFileName(upload.FileName);
                 upload.SaveAs(Server.MapPath("~/Content/img/" + fileName));

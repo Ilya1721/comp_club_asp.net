@@ -5,12 +5,22 @@
 
 @{
     var games = ViewData["games"] as List<ComputerClub.Models.Game>;
+    var i = 1;
 }
 
 <div class="games">
     @Html.Partial("_LeftMenu")
     <div class="img-div">
         <h3>Усі ігри</h3>
+        @if (Roles.IsUserInRole("Admin"))
+        {
+            <div class="add-div">
+                <a href='@Url.Action("Create", "Game")'
+                   class="mybtn-warning">
+                    Додати гру
+                </a>
+            </div>
+        }
         <table class="table">
             <thead>
                 <tr>
@@ -19,17 +29,39 @@
                     <th>Назва</th>
                     <th>Жанр</th>
                     <th>Платформи</th>
+                    @if (Roles.IsUserInRole("Admin"))
+                    {
+                        <th></th>
+                        <th></th>
+                    }
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in games)
                 {
                 <tr>
-                    <td>@item.GameID</td>
+                    <td>@i @{i++;}</td>
                     <td><img src='@Url.Action("GetImage", "Game", new { itemId = item.GameID })'></td>
                     <td><span>@item.Name</span></td>
                     <td>@item.Genre.Name</td>
                     <td>Windows</td>
+                    @if (Roles.IsUserInRole("Admin"))
+                    {
+                        <td>
+                            <a href='@Url.Action("Edit", "Game",
+                                    new { GameID = item.GameID })'
+                               class="mybtn-warning">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            <form action='@Url.Action("Delete", "Game",
+                                         new { GameID = item.GameID })'
+                                  method="post" class="delete-form">
+                                <input type="submit" class="mybtn-danger" value="Delete">
+                            </form>
+                        </td>
+                    }
                 </tr>
                 }
             </tbody>

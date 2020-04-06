@@ -1,0 +1,43 @@
+﻿@using ComputerClub.Models
+@model ComputerClub.Models.Platform
+@{
+    ViewBag.Title = "Edit Platform";
+    var platform = ViewData["platform"] as Platform;
+}
+
+<section id="genreCreateForm">
+    @using (Html.BeginForm("Update", "Platform",
+        new
+        {
+            PlatformID = platform.PlatformID,
+            ReturnUrl = Url.Action("Index", "Platform")
+        },
+        FormMethod.Post,
+        new { @class = "form-horizontal", role = "form",
+            enctype = "multipart/form-data" }))
+    {
+        <h2>@ViewBag.Title</h2>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-div">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value=platform.Name })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-div">
+            <label class="control-label">Photo</label>
+            <input type="file" name="upload" /><br>
+        </div>
+
+        <div class="submit-div">
+            <input type="submit" value="Submit" class="mybtn-submit" />
+            <a href="@Url.Action("Index", "Platform")" class="mybtn-danger">
+                Cancel
+            </a>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

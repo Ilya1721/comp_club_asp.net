@@ -1,0 +1,85 @@
+﻿@using ComputerClub.Models
+@model ComputerClub.Models.Game
+@{
+    ViewBag.Title = "Edit Game";
+    var game = ViewData["game"] as Game;
+    var platforms = ViewData["platforms"] as List<Platform>;
+    var genres = ViewData["genres"] as List<Genre>;
+}
+
+<section id="genreCreateForm">
+    @using (Html.BeginForm("Update", "Game",
+        new
+        {
+            GameID = game.GameID,
+            ReturnUrl = Url.Action("Index", "Game")
+        },
+        FormMethod.Post,
+        new
+        {
+            @class = "form-horizontal",
+            role = "form",
+            enctype = "multipart/form-data"
+        }))
+    {
+        <h2>@ViewBag.Title</h2>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-div">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @Value = game.Name })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-div">
+            <label class="control-label">Platform</label>
+            <select name="PlatformID" id="PlatformID"
+                    selected value=@game.PlatformID>
+                <option value=@game.PlatformID>
+                    @game.Platform.Name
+                </option>
+                @foreach (var item in platforms)
+                {
+                    if (item.PlatformID != game.PlatformID)
+                    {
+                        <option value=@item.PlatformID>
+                            @item.Name
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-div">
+            <label class="control-label">Genre</label>
+            <select name="GenreID" id="GenreID"
+                    selected value=@game.GenreID>
+                <option value=@game.GenreID>
+                    @game.Genre.Name
+                </option>
+                @foreach (var item in genres)
+                {
+                    if (item.GenreID != game.GenreID)
+                    {
+                        <option value=@item.GenreID>
+                            @item.Name
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-div">
+            <label class="control-label">Photo</label>
+            <input type="file" name="upload" /><br>
+        </div>
+
+        <div class="submit-div">
+            <input type="submit" value="Submit" class="mybtn-submit" />
+            <a href="@Url.Action("Index", "Game")" class="mybtn-danger">
+                Cancel
+            </a>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
