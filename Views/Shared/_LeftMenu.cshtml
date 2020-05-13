@@ -6,9 +6,7 @@
     @Html.ActionLink("Усі платформи", "Index", "Platform")
     @Html.ActionLink("Ціни", "Index", "Price")
     @Html.ActionLink("Режим роботи", "index", "Schedule")
-    <a href="#">
-        Забронювати місце
-    </a>
+    @Html.ActionLink("Забронювати місце", "Create", "Visit")
 
     @if (Roles.IsUserInRole("Admin"))
     {
