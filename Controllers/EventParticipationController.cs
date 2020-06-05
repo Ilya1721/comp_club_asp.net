@@ -8,6 +8,7 @@ namespace ComputerClub.Controllers
 {
     public class EventParticipationController : ApplicationController
     {
+        [Authorize]
         public ActionResult Index()
         {
             ViewData["participations"] = DataContext.UserEventPivots.
@@ -18,6 +19,7 @@ namespace ComputerClub.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Create()
         {
@@ -29,6 +31,7 @@ namespace ComputerClub.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public RedirectResult Store()
